@@ -1,0 +1,11 @@
+void *dalloc(size_t request);
+void dfree(void *memory);
+void traverse();
+void traverseWithArena();
+void sanity();
+void init();
+void initBench16();
+void flistLengthAndAverageSize();
+void reset();
+int lengthOfFree();
+void sizes(int *buffer, int max);
