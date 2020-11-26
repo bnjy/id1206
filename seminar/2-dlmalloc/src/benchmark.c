@@ -34,9 +34,15 @@ void bench(int allocations, char *name){
 		if(buffer[index] != NULL){
 			dfree(buffer[index]);
 		}
-			size_t size = 16; //(size_t)request();
+			size_t size = (size_t)request();
 			int *memory;
 			memory = dalloc(size);
+			
+			if(memory == NULL){
+				memory= dalloc(0);
+				fprintf(stderr,"memory allocation failed, last adress %p\n", memory);
+				return(1);
+			}
 			
 			buffer[index] = memory;
 			*memory = 123;
@@ -99,8 +105,8 @@ int main(int argc, char *argv[]){
 	int first = atoi(argv[1]);
 	char *name = argv[2];
 	
-	//bench(first, name);
-	bench16(first);
+	bench(first, name);
+	//bench16(first);
 	
 	return 0;
 }
