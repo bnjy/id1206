@@ -7,7 +7,7 @@
 
 #define TRUE 1
 #define FALSE 0
-#define TAKENSTRUCT 1
+#define TAKENSTRUCT 0
 
 #ifdef TAKENSTRUCT
 
@@ -237,7 +237,8 @@ void *dalloc(size_t request){
 void dfree(void *memory){
 	if(memory != NULL){
 		struct head *block = (struct head*) MAGIC(memory); //memory;
-		block = merge(block);
+		//block = merge(block);
+		printf("Trying to free adress: %p\n", memory);
 		
 		struct head *aft = after(block);
 		block->free = TRUE;
@@ -255,7 +256,7 @@ void init(){
 void traverseWithArena(){
 	struct head *temp = arena;
 	while(temp->size != 0){
-		printf("adress: %p, free: %d, size: %d, bfree: %d, bsize: %d\n", temp, temp->free, temp->size, temp->bfree, temp->bsize);
+		printf("adress: %p, free: %d, size: %d, bfree: %d, bsize: %d, prev adress: %p\n", temp, temp->free, temp->size, temp->bfree, temp->bsize, before(temp));
 		temp = after(temp);
 	}
 }

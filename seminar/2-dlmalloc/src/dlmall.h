@@ -9,3 +9,4 @@ void flistLengthAndAverageSize();
 void reset();
 int lengthOfFree();
 void sizes(int *buffer, int max);
+struct head *before(struct head *block);

@@ -9,14 +9,17 @@ void testFunction(){
 	struct head *var2 = dalloc(200);
 	struct head *var3 = dalloc(1000);
 	struct head *var4 = dalloc(819);
-	dfree(var1);
-	dfree(var2);
+	
+	//dfree(var1);
+	//dfree(var2);
 	dfree(var3);
-	dfree(var4);
-
+	//dfree(var4);
+	
 	traverseWithArena();
+
+	//traverseWithArena();
 	//traverse(first);
-	sanity();
+	//sanity();
 }
 
 int main(){

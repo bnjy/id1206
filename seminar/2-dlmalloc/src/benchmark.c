@@ -10,7 +10,7 @@
 #define SIZES 1000
 #define ROUNDS 100000
 #define LOOP 1000
-#define BLOCKS 1000
+#define BLOCKS 2000
 
 
 int freq[SIZES];
