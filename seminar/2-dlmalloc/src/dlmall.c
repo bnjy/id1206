@@ -238,7 +238,7 @@ void dfree(void *memory){
 	if(memory != NULL){
 		struct head *block = (struct head*) MAGIC(memory); //memory;
 		//block = merge(block);
-		printf("Trying to free adress: %p\n", memory);
+		printf("Trying to free adress: %p\n", MAGIC(memory));
 		
 		struct head *aft = after(block);
 		block->free = TRUE;
