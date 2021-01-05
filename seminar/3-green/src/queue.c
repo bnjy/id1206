@@ -22,7 +22,7 @@ void queue_insert(struct queue_t *queue, green_t *new){
 }
 
 struct green_t *queue_remove(struct queue_t *queue){
-	/* If queue is empty, return null. */
+	/* Empty queue, return null. */
 	if(queue->head == NULL){
 		return NULL;
 	}
@@ -34,6 +34,7 @@ struct green_t *queue_remove(struct queue_t *queue){
 	if(queue->head == NULL){
 		queue->tail = NULL;
 	}
+	
 	return thread;
 	
 	/*

@@ -13,17 +13,14 @@ typedef struct green_t {
 	int zombie; //indicates if the thread has terminated or not
 } green_t;
 
-//extern struct queue_t *ready_queue;
-
 typedef struct green_cond_t {
-	struct queue_t *queue;
+	struct green_t *susp_list;
 } green_cond_t;
 
 typedef struct green_mutex_t {
 	volatile int taken;
 	//handle the list
 	struct green_t *susp;
-	struct queue_t *queue;
 } green_mutex_t;
 
 /* Mutex locks */
@@ -42,6 +39,10 @@ void green_cond_init(green_cond_t *cond);
 void green_cond_wait(green_cond_t *cond);
 void green_cond_signal(green_cond_t *cond);
 void green_cond_wait_mutex(green_cond_t *cond, green_mutex_t *mutex);
+
+/* other */
+green_t *queue_remove(green_t **list);
+void queue_insert(green_t **list, green_t *thread);
 void timer_handler(int);
 
 #endif
